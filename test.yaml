@@ -26,6 +26,7 @@ spec:
 ---
 
 # --- Nginx Service Tanımı ---
+# nginx-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -37,4 +38,6 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: LoadBalancer # Dışarıdan erişim için bir LoadBalancer servisi oluşturur
+      nodePort: 30080 # İsteğe bağlı: Kendi NodePort'unuzu belirleyebilirsiniz. 30000-32767 arası bir değer olmalı.
+                      # Belirtmezseniz Kubernetes otomatik atar.
+  type: NodePort # Burayı LoadBalancer'dan NodePort'a değiştirdik
