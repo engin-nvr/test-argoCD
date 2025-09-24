@@ -10,14 +10,11 @@ spec:
     targetRevision: main
     path: apps
     directory:
-      # apps/ içindeki tüm Application manifestlerini alır
-      # recurse: true   
-
+      # apps/ içindeki tüm Application manifestlerini almak için:
+      # recurse: true
       sources:
         - path: apps/nginx-app.yaml
-        - path: apps/keycloak-app.yaml # bu sekilde apps icinde calısacak dosyaları alır
-
-      
+        - path: apps/keycloak-app.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
@@ -25,4 +22,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-
