@@ -11,7 +11,7 @@ spec:
     path: manifests        # nginx-all-in-one.yaml bu klasörde olacak
   destination:
     server: https://kubernetes.default.svc
-    namespace: nginx
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
